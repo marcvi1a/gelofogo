@@ -111,8 +111,8 @@ button:disabled {
 
 #timer {
   background: #000;
-  background: #378de2; /* ice bath */
   background: #ef0241; /* sauna */
+  background: #378de2; /* ice bath */
 
   color: #fff;
   font-size: 7rem;
