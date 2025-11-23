@@ -17,8 +17,21 @@ button:hover {
   position: relative;
   overflow: hidden;
 
-  background: #ef0241; /* sauna */
-  background: #378de2; /* ice bath */
+  background: linear-gradient(
+    180deg,
+    #ef0241 0%,
+    #f2efea 20%,
+    #f2efea 80%,
+    #ef0241 100%
+  ); /* sauna */
+
+  background: linear-gradient(
+    180deg,
+    #378de2 0%,
+    #f2efea 20%,
+    #f2efea 80%,
+    #378de2 100%
+  ); /* ice bath */
 }
 
 #app-padding {
