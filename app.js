@@ -13,6 +13,10 @@ cameraStart.addEventListener("click", async () => {
     cameraPreview.style.display = "none";
     camera.style.display = "block";
 
+    document.getElementById("camera-controls__invert").disabled = false;
+    document.getElementById("camera-controls__video").disabled = false;
+    document.getElementById("camera-controls__photos").disabled = false;
+
   } catch (err) {
     alert("Camera permission denied or unavailable.");
     console.error(err);
