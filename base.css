@@ -18,7 +18,7 @@ button:hover {
   overflow: hidden;
 
   /* background: #f2efea; */
-  background: linear-gradient(180deg, #378de2, #ef0241, #378de2, #ef0241, #378de2, #ef0241, #378de2, #ef0241, #378de2);
+  background: linear-gradient(180deg, #378de2, #ef0241, #378de2, #ef0241, #378de2, #ef0241, #378de2);
   background-size: 100% 1400%;
 
   animation: scroll 60s linear infinite;
