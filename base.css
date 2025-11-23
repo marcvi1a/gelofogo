@@ -20,24 +20,9 @@ button:disabled {
   width: 390px;
   height: 100dvh;
   margin: 0 auto;
+  background: #f2efea;
   position: relative;
   overflow: hidden;
-
-  background: linear-gradient(
-    180deg,
-    #ef0241 0%,
-    #f2efea 10%,
-    #f2efea 90%,
-    #ef0241 100%
-  ); /* sauna */
-
-  background: linear-gradient(
-    180deg,
-    #378de2 0%,
-    #f2efea 10%,
-    #f2efea 90%,
-    #378de2 100%
-  ); /* ice bath */
 }
 
 #app-padding {
@@ -122,6 +107,9 @@ button:disabled {
   display: flex;
   flex-direction: column;
   margin-top: 0.75rem;
+
+  background: #ef0241; /* sauna */
+  background: #378de2; /* ice bath */
 }
 
 #timer {
