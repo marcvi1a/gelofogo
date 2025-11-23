@@ -14,15 +14,14 @@ html, body {
   overflow: hidden;
 
   /* background: #f2efea; */
-  background: linear-gradient(90deg, #378de2, #37e239, #ef0241);
+  background: linear-gradient(45deg, #ff0088, #00e1ff, #ffdd00);
   background-size: 300% 300%;
-  animation: gradient-move 8s ease infinite;
+  animation: gradient-move 20s ease infinite;
 }
 
 @keyframes gradient-move {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
 }
 
 #app-padding {
