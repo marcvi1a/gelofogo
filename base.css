@@ -118,9 +118,18 @@ button:hover {
   justify-content: space-between
 }
 
-#timer-controls button {
+#timer-controls .level-1 {
   flex: 1;
   height: 4rem;
+}
+
+.timer-controls__group {
+  display: flex;
+  flex-direction: column;
+}
+
+#timer-controls .level-2 {
+  flex: 1;
 }
 
 #start-container {
