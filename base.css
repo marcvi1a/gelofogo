@@ -15,6 +15,10 @@ html, body {
   overflow: hidden;
 }
 
+#app-padding {
+  padding: 0.75rem;
+}
+
 /* Center on desktop */
 @media (min-width: 800px) {
   body {
