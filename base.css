@@ -24,21 +24,6 @@ html, body {
   }
 }
 
-#camera {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 50%;            /* half width of screen */
-  height: 50%;           /* half height = quarter screen */
-  aspect-ratio: 9 / 16;   /* forces 9:16 always */
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
 /* Blurry background covers entire screen */
 #camera-preview {
   position: absolute;
@@ -49,19 +34,33 @@ html, body {
   height: 50%;           /* half height = quarter screen */
   aspect-ratio: 9 / 16;   /* forces 9:16 always */
 
-  background: url('https://picsum.photos/800/1600') center/cover no-repeat;
-  filter: blur(10px);
+  background: url('blur.gif') center/cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 /* Call-to-action button */
 #camera-start {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   padding: 20px;
   font-size: 20px;
   background: rgba(255,255,255,0.9);
   border: none;
   border-radius: 10px;
+}
+
+#camera {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 50%;            /* half width of screen */
+  height: 50%;           /* half height = quarter screen */
+  aspect-ratio: 9 / 16;   /* forces 9:16 always */
+
+  object-fit: cover;
+  background: #000;
+  display: none; /* hidden until permission granted */
 }
