@@ -15,13 +15,14 @@ html, body {
 
   /* background: #f2efea; */
   background: linear-gradient(180deg, #378de2, #ef0241, #378de2);
-  background-size: 300% 300%;
-  animation: gradient-move 30s ease-in-out infinite;
+  background: linear-gradient(180deg, #378de2, #ef0241, #378de2);
+  background-size: 100% 300%;
+  animation: gradient-move 30s linear infinite;
 }
 
 @keyframes gradient-move {
-  0%   { background-position: 50% 0%; }
-  100% { background-position: 50% 100%; }
+  0%   { background-position: 0% 0%, 0% 100%; }
+  100% { background-position: 0% 100%, 0% 200%; }
 }
 
 #app-padding {
