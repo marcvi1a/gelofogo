@@ -34,7 +34,6 @@ html, body {
   aspect-ratio: 9 / 16;   /* forces 9:16 always */
 
   background: url('blur.gif') repeat;
-  background-size: 180px auto;
 
   display: flex;
   align-items: center;
@@ -54,6 +53,7 @@ html, body {
 
 #camera-start span {
   color: #0000EE;
+  text-decoration: underline;
 }
 
 #camera {
