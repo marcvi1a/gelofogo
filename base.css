@@ -5,6 +5,10 @@ html, body {
   background: #fff;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 /* Main mobile frame */
 #app {
   width: 390px;
@@ -17,7 +21,9 @@ html, body {
   background: linear-gradient(180deg, #378de2, #ef0241, #378de2);
   background: linear-gradient(180deg, #378de2, #ef0241, #378de2);
   background-size: 100% 300%;
-  animation: gradient-move 30s linear infinite;
+  background-repeat: repeat-y;
+
+  animation: gradient-move 10s linear infinite;
 }
 
 @keyframes gradient-move {
@@ -70,10 +76,6 @@ html, body {
   text-decoration: underline;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
 #camera {
   aspect-ratio: 9 / 16;
   height: 100%;
@@ -109,7 +111,7 @@ button:hover {
 }
 
 #timer {
-  background: #282723;
+  background: #000;
   color: #fff;
   font-size: 7rem;
   font-family: monospace;
