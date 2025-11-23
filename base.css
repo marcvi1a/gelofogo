@@ -46,14 +46,32 @@ html, body {
   border-radius: 10px;
 }
 
-/* Camera box = 1/4 of screen */
-#camera {
-  width: 50%;     /* half width */
-  height: 50%;    /* half height = quarter area */
-  object-fit: cover;
+/* Wrapper container enforcing 9:16 ratio */
+#camera-container {
   position: absolute;
   top: 0;
   left: 0;
-  background: #000;
-  display: block; /* Always visible */
+
+  width: 50%;            /* half width of screen */
+  height: 50%;           /* half height = quarter screen */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Inner box that maintains 9:16 ratio */
+#camera-box {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 9 / 16;   /* forces 9:16 always */
+  overflow: hidden;
+}
+
+/* Camera feed */
+#camera {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
