@@ -10,9 +10,8 @@ startBtn.addEventListener("click", async () => {
 
     camera.srcObject = stream;
 
-    // Switch to camera view
+    // Remove overlay but DO NOT resize camera
     startScreen.style.display = "none";
-    camera.style.display = "block";
 
   } catch (err) {
     alert("Camera permission denied or unavailable.");

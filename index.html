@@ -18,7 +18,11 @@
 
 <body>
   <div id="app">
-    <!-- Initial screen -->
+
+    <!-- Camera preview window (always visible) -->
+    <video id="camera" autoplay playsinline></video>
+
+    <!-- Initial overlay -->
     <div id="start-screen">
       <div class="blur-bg"></div>
       <button id="start-btn">
@@ -26,8 +30,6 @@
       </button>
     </div>
 
-    <!-- Camera screen -->
-    <video id="camera" autoplay playsinline></video>
   </div>
 
   <script src="app.js"></script>

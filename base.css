@@ -5,6 +5,7 @@ html, body {
   background: white;
 }
 
+/* Main mobile frame */
 #app {
   width: 390px;
   height: 844px;
@@ -14,6 +15,7 @@ html, body {
   overflow: hidden;
 }
 
+/* Center on desktop */
 @media (min-width: 800px) {
   body {
     display: flex;
@@ -22,6 +24,7 @@ html, body {
   }
 }
 
+/* Blurry background covers entire screen */
 .blur-bg {
   width: 100%;
   height: 100%;
@@ -30,6 +33,7 @@ html, body {
   position: absolute;
 }
 
+/* Call-to-action button */
 #start-btn {
   position: absolute;
   top: 50%;
@@ -42,9 +46,14 @@ html, body {
   border-radius: 10px;
 }
 
+/* Camera box = 1/4 of screen */
 #camera {
-  width: 100%;
-  height: 100%;
+  width: 50%;     /* half width */
+  height: 50%;    /* half height = quarter area */
   object-fit: cover;
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  display: block; /* Always visible */
 }
