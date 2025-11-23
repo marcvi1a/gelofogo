@@ -14,9 +14,9 @@ html, body {
   overflow: hidden;
 
   /* background: #f2efea; */
-  background: linear-gradient(90deg, #ff0088, #00e1ff, #ffdd00);
+  background: linear-gradient(90deg, #559ee6, #ef0241, #559ee6);
   background-size: 300% 300%;
-  animation: gradient-move 20s linear infinite;
+  animation: gradient-move 12s ease-in-out infinite;
 }
 
 @keyframes gradient-move {
