@@ -24,14 +24,16 @@ html, body {
   }
 }
 
+.camera-container {
+  display: flex;
+  width: 100%;
+  height: 60%;
+}
+
 /* Blurry background covers entire screen */
 #camera-preview {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  height: 60%;           /* half height = quarter screen */
-  aspect-ratio: 9 / 16;   /* forces 9:16 always */
+  aspect-ratio: 9 / 16;
+  height: 100%;
 
   background: url('blur.gif') repeat;
 
@@ -44,7 +46,7 @@ html, body {
 /* Call-to-action button */
 #camera-start {
   max-width: 70%;
-  padding: 1rem 1.4rem;
+  padding: 1rem 1.3rem;
   font-size: 1.25rem;
   background: rgba(255,255,255,0.9);
   border: none;
@@ -58,12 +60,8 @@ html, body {
 }
 
 #camera {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  height: 60%;           /* half height = quarter screen */
-  aspect-ratio: 9 / 16;   /* forces 9:16 always */
+  aspect-ratio: 9 / 16;
+  height: 100%;
 
   object-fit: cover;
   background: #000;
@@ -71,14 +69,11 @@ html, body {
 }
 
 #camera-controls {
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  height: 60%;           /* half height = quarter screen */
-  aspect-ratio: 7 / 16;   /* forces 9:16 always */
+  flex: 1;              /* takes up leftover width */
 
   object-fit: cover;
-  background: #000;
+}
+
+#camera-controls button {
   filter: blur(10px);
 }
