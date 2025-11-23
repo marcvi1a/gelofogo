@@ -2,7 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: white;
+  background: #fff;
 }
 
 /* Main mobile frame */
@@ -24,6 +24,23 @@ html, body {
   }
 }
 
+#camera {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 50%;            /* half width of screen */
+  height: 50%;           /* half height = quarter screen */
+  aspect-ratio: 9 / 16;   /* forces 9:16 always */
+
+  background: #00ff00;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 /* Blurry background covers entire screen */
 #camera-preview {
   width: 100%;
@@ -40,19 +57,4 @@ html, body {
   background: rgba(255,255,255,0.9);
   border: none;
   border-radius: 10px;
-}
-
-#camera {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 50%;            /* half width of screen */
-  height: 50%;           /* half height = quarter screen */
-  aspect-ratio: 9 / 16;   /* forces 9:16 always */
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 }
