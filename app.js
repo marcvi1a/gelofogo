@@ -2,6 +2,14 @@ const cameraPreview = document.getElementById("camera-preview");
 const cameraStart = document.getElementById("camera-start");
 const camera = document.getElementById("camera");
 
+const saunaButtonn = document.getElementById("start-controls__sauna");
+const iceBathButton = document.getElementById("start-controls__ice-bath");
+const COLOR_SAUNA = "#ef0241";
+const COLOR_ICE_BATH = "#378de2";
+const timer = document.getElementById("timer");
+const startButton = document.getElementById("start-controls__start");
+
+
 cameraStart.addEventListener("click", async () => {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({
@@ -23,4 +31,22 @@ cameraStart.addEventListener("click", async () => {
     alert("Camera permission denied or unavailable.");
     console.error(err);
   }
+});
+
+saunaButton.addEventListener("click", () => {
+
+  saunaButton.classList.add("selected");
+  iceBathButton.classList.remove("selected");
+
+  timer.style.background = COLOR_SAUNA;
+  startButton.style.background = COLOR_SAUNA;
+});
+
+iceBathButton.addEventListener("click", () => {
+
+  iceBathButton.classList.add("selected");
+  saunaButton.classList.remove("selected");
+
+  timer.style.background = COLOR_ICE_BATH;
+  startButton.style.background = COLOR_ICE_BATH;
 });
