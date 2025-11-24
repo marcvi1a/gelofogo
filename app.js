@@ -43,17 +43,6 @@ if (storedMode === "ice-bath") {
 }
 
 
-// --- Time settings ---
-
-const SINGLE_STEP_SAUNA = 60;
-const SINGLE_STEP_ICE_BATH = 10;
-
-const DOUBLE_STEP_SAUNA = 180;
-const DOUBLE_STEP_ICE_BATH = 40;
-
-const MAX_SAUNA = 1800;
-const MAX_ICE_BATH = 600;
-
 // Initialize both countdown values if empty
 if (!localStorage.getItem("time-countdown-sauna")) {
   localStorage.setItem("time-countdown-sauna", "600");
@@ -71,9 +60,9 @@ function getMode() {
 
 function getSliderSettings() {
   if (getMode() === "sauna") {
-    return { min: 0, max: 1800, step: 60, key: "time-countdown-sauna" };
+    return { min: 60, max: 1800, step: 60, key: "time-countdown-sauna" };
   }
-  return { min: 0, max: 600, step: 10, key: "time-countdown-ice-bath" };
+  return { min: 60, max: 600, step: 10, key: "time-countdown-ice-bath" };
 }
 
 function applySliderSettings() {
@@ -83,28 +72,6 @@ function applySliderSettings() {
   timeSlider.step = step;
   timeSlider.value = localStorage.getItem(key) || step;
   timeDisplay.textContent = formatTime(parseInt(timeSlider.value, 10));
-}
-
-function getActiveCountdown() {
-  const mode = getMode();
-  if (mode === "sauna") {
-    return parseInt(localStorage.getItem("time-countdown-sauna"), 10);
-  } else {
-    return parseInt(localStorage.getItem("time-countdown-ice-bath"), 10);
-  }
-}
-
-function setActiveCountdown(value) {
-  const mode = getMode();
-  if (mode === "sauna") {
-    localStorage.setItem("time-countdown-sauna", value);
-  } else {
-    localStorage.setItem("time-countdown-ice-bath", value);
-  }
-}
-
-function getMaxTime() {
-  return getMode() === "sauna" ? MAX_SAUNA : MAX_ICE_BATH;
 }
 
 function formatTime(seconds) {
