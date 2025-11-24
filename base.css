@@ -39,6 +39,9 @@ button:disabled {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 1rem;
+
+  line-height: 1rem;
+  margin-top: -0.75rem;
 }
 
 /* Center on desktop */
