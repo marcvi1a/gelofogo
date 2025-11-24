@@ -57,6 +57,10 @@ function getMode() {
   return localStorage.getItem("mode") === "sauna" ? "sauna" : "ice-bath";
 }
 
+function getStepSize() {
+  return localStorage.getItem("mode") === "sauna" ? 60 : 30;
+}
+
 function getActiveCountdown() {
   const mode = getMode();
   if (mode === "sauna") {
@@ -176,14 +180,14 @@ buttonCountdown.addEventListener("click", () => {
 
 buttonLess.addEventListener("click", () => {
   let value = getActiveCountdown();
-  value = Math.max(0, value - 1);
+  value = Math.max(0, value - getStepSize());
   setActiveCountdown(value);
   updateTimeControls();
 });
 
 buttonMore.addEventListener("click", () => {
   let value = getActiveCountdown();
-  value = value + 1;
+  value = value + getStepSize();
   setActiveCountdown(value);
   updateTimeControls();
 });
