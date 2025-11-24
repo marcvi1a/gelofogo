@@ -2,7 +2,7 @@ const cameraPreview = document.getElementById("camera-preview");
 const cameraStart = document.getElementById("camera-start");
 const camera = document.getElementById("camera");
 
-const saunaButtonn = document.getElementById("start-controls__sauna");
+const saunaButton = document.getElementById("start-controls__sauna");
 const iceBathButton = document.getElementById("start-controls__ice-bath");
 const COLOR_SAUNA = "#ef0241";
 const COLOR_ICE_BATH = "#378de2";
