@@ -142,7 +142,7 @@ cameraStart.addEventListener("click", async () => {
 saunaButton.addEventListener("click", () => {
   saunaButton.classList.add("selected");
   iceBathButton.classList.remove("selected");
-  timer.style.background = COLOR_SAUNA;
+  timeDisplay.style.background = COLOR_SAUNA;
   startButton.style.background = COLOR_SAUNA;
 
   localStorage.setItem("mode", "sauna");
@@ -151,7 +151,7 @@ saunaButton.addEventListener("click", () => {
 iceBathButton.addEventListener("click", () => {
   iceBathButton.classList.add("selected");
   saunaButton.classList.remove("selected");
-  timer.style.background = COLOR_ICE_BATH;
+  timeDisplay.style.background = COLOR_ICE_BATH;
   startButton.style.background = COLOR_ICE_BATH;
 
   localStorage.setItem("mode", "ice-bath");
