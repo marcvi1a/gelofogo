@@ -123,6 +123,7 @@ saunaButton.addEventListener("click", () => {
 
   localStorage.setItem("mode", "sauna");
   applySliderSettings();
+  updateSliderColor();
 });
 
 iceBathButton.addEventListener("click", () => {
@@ -135,6 +136,7 @@ iceBathButton.addEventListener("click", () => {
 
   localStorage.setItem("mode", "ice-bath");
   applySliderSettings();
+  updateSliderColor();
 });
 
 
@@ -148,3 +150,4 @@ timeSlider.addEventListener("input", () => {
 
 
 applySliderSettings();
+updateSliderColor();
