@@ -52,13 +52,15 @@ const buttonCountdown = document.getElementById("time-controls__countdown");
 const buttonLess = document.getElementById("time-controls__less");
 const buttonMore = document.getElementById("time-controls__more");
 
+const SINGLE_STEP_SAUNA = 60;
+const SINGLE_STEP_ICE = 10;
+
+const DOUBLE_STEP_SAUNA = 300;
+const DOUBLE_STEP_ICE = 60;
+
 
 function getMode() {
   return localStorage.getItem("mode") === "sauna" ? "sauna" : "ice-bath";
-}
-
-function getStepSize() {
-  return localStorage.getItem("mode") === "sauna" ? 60 : 30;
 }
 
 function getActiveCountdown() {
@@ -77,6 +79,18 @@ function setActiveCountdown(value) {
   } else {
     localStorage.setItem("time-countdown-ice-bath", value);
   }
+}
+
+function getSingleStep() {
+  return getMode() === "sauna"
+    ? SINGLE_STEP_SAUNA
+    : SINGLE_STEP_ICE;
+}
+
+function getDoubleStep() {
+  return getMode() === "sauna"
+    ? DOUBLE_STEP_SAUNA
+    : DOUBLE_STEP_ICE;
 }
 
 function updateTimeControls() {
@@ -180,17 +194,33 @@ buttonCountdown.addEventListener("click", () => {
 
 buttonLess.addEventListener("click", () => {
   let value = getActiveCountdown();
-  value = Math.max(0, value - getStepSize());
+  value = Math.max(0, value - getSingleStep());
+  setActiveCountdown(value);
+  updateTimeControls();
+});
+
+buttonLess.addEventListener("dblclick", () => {
+  let value = getActiveCountdown();
+  value = Math.max(0, value - getDoubleStep());
   setActiveCountdown(value);
   updateTimeControls();
 });
 
 buttonMore.addEventListener("click", () => {
   let value = getActiveCountdown();
-  value = value + getStepSize();
+  value = value + getSingleStep();
   setActiveCountdown(value);
   updateTimeControls();
 });
+
+buttonMore.addEventListener("dblclick", () => {
+  let value = getActiveCountdown();
+  value = value + getDoubleStep();
+  setActiveCountdown(value);
+  updateTimeControls();
+});
+
+
 
 
 updateTimeControls();
