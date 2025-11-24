@@ -106,35 +106,35 @@ button:disabled {
   /* filter: blur(10px); */
 }
 
-#timer-container {
+#time-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-top: 0.75rem;
 }
 
-#timer {
+#time-display {
   color: #fff;
   font-size: 7rem;
   font-family: monospace;
   text-align: center;
 }
 
-#timer-controls {
+#time-controls {
   display: flex;
   justify-content: space-between
 }
 
-#timer-controls .level-1 {
+#time-controls .level-1 {
   flex: 1;
   height: 4rem;
 }
 
-.timer-controls__group {
+.time-controls__group {
   display: flex;
 }
 
-#timer-controls .level-2 {
+#time-controls .level-2 {
   flex: 1;
 }
 

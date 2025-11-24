@@ -2,6 +2,7 @@ const cameraPreview = document.getElementById("camera-preview");
 const cameraStart = document.getElementById("camera-start");
 const camera = document.getElementById("camera");
 
+
 const saunaButton = document.getElementById("start-controls__sauna");
 const iceBathButton = document.getElementById("start-controls__ice-bath");
 const COLOR_SAUNA = "#ef0241";
@@ -11,7 +12,7 @@ const startButton = document.getElementById("start-controls__start");
 
 // --- Initialize mode if empty ---
 if (!localStorage.getItem("mode")) {
-  localStorage.setItem("mode", "ice bath");
+  localStorage.setItem("mode", "ice-bath");
 }
 
 const storedMode = localStorage.getItem("mode");
@@ -24,12 +25,86 @@ if (storedMode === "sauna") {
   startButton.style.background = COLOR_SAUNA;
 }
 
-if (storedMode === "ice bath") {
+if (storedMode === "ice-bath") {
   iceBathButton.classList.add("selected");
   saunaButton.classList.remove("selected");
   timer.style.background = COLOR_ICE_BATH;
   startButton.style.background = COLOR_ICE_BATH;
 }
+
+
+// --- Time settings ---
+
+const TIME_TIMER = 0; // always 0
+
+// Initialize both countdown values if empty
+if (!localStorage.getItem("time-countdown-sauna")) {
+  localStorage.setItem("time-countdown-sauna", "600");
+}
+
+if (!localStorage.getItem("time-countdown-ice-bath")) {
+  localStorage.setItem("time-countdown-ice-bath", "60");
+}
+
+const timeDisplay = document.getElementById("time-display");
+
+const buttonTimer = document.getElementById("time-controls__timer");
+const buttonCountdown = document.getElementById("time-controls__countdown");
+
+const buttonLess = document.getElementById("time-controls__less");
+const buttonMore = document.getElementById("time-controls__more");
+
+
+function getMode() {
+  return localStorage.getItem("mode") === "sauna" ? "sauna" : "ice-bath";
+}
+
+function getActiveCountdown() {
+  const mode = getMode();
+  if (mode === "sauna") {
+    return parseInt(localStorage.getItem("time-countdown-sauna"), 10);
+  } else {
+    return parseInt(localStorage.getItem("time-countdown-ice-bath"), 10);
+  }
+}
+
+function setActiveCountdown(value) {
+  const mode = getMode();
+  if (mode === "sauna") {
+    localStorage.setItem("time-countdown-sauna", value);
+  } else {
+    localStorage.setItem("time-countdown-ice-bath", value);
+  }
+}
+
+function updateTimeControls() {
+  if (buttonTimer.classList.contains("selected")) {
+    // Timer mode → always 0
+    timeDisplay.textContent = formatTime(TIME_TIMER);
+    buttonLess.disabled = true;
+    buttonMore.disabled = true;
+  } else {
+    // Countdown mode for the selected mode (sauna / ice bath)
+    timeDisplay.textContent = formatTime(getActiveCountdown());
+    buttonLess.disabled = false;
+    buttonMore.disabled = false;
+  }
+}
+
+function formatTime(seconds) {
+  const m = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const s = String(seconds % 60).padStart(2, "0");
+  return `${m}:${s}`;
+}
+
+
+
+
+
+
+
+
+
 
 
 cameraStart.addEventListener("click", async () => {
@@ -55,6 +130,7 @@ cameraStart.addEventListener("click", async () => {
   }
 });
 
+
 saunaButton.addEventListener("click", () => {
   saunaButton.classList.add("selected");
   iceBathButton.classList.remove("selected");
@@ -72,3 +148,33 @@ iceBathButton.addEventListener("click", () => {
 
   localStorage.setItem("mode", "ice-bath");
 });
+
+
+buttonTimer.addEventListener("click", () => {
+  buttonTimer.classList.add("selected");
+  buttonCountdown.classList.remove("selected");
+  updateTimeControls();
+});
+
+buttonCountdown.addEventListener("click", () => {
+  buttonCountdown.classList.add("selected");
+  buttonTimer.classList.remove("selected");
+  updateTimeControls();
+});
+
+buttonLess.addEventListener("click", () => {
+  let value = getActiveCountdown();
+  value = Math.max(0, value - 1);
+  setActiveCountdown(value);
+  updateTimeControls();
+});
+
+buttonMore.addEventListener("click", () => {
+  let value = getActiveCountdown();
+  value = value + 1;
+  setActiveCountdown(value);
+  updateTimeControls();
+});
+
+
+updateTimeControls();
