@@ -169,7 +169,7 @@ button:disabled {
   width: 100%;
 
   /* keep your original spacing */
-  padding: 0.75rem;
+  padding: 0.75rem 0;
 
   /* ensure on top of everything */
   z-index: 9999;
@@ -184,11 +184,13 @@ button:disabled {
 #menu-controls {
   display: flex;
   justify-content: space-between;
+  gap: 0.75rem;
 }
 
 #menu-controls button {
   flex: 1;
   height: 4rem;
+  min-width: 0;
 }
 
 #menu-controls__sauna, #menu-controls__ice-bath {
