@@ -138,6 +138,7 @@ saunaButton.addEventListener("click", () => {
   localStorage.setItem("mode", "sauna");
   applySliderSettings();
   updateSliderColor();
+  updateSliderFill();
 });
 
 iceBathButton.addEventListener("click", () => {
@@ -151,6 +152,7 @@ iceBathButton.addEventListener("click", () => {
   localStorage.setItem("mode", "ice-bath");
   applySliderSettings();
   updateSliderColor();
+  updateSliderFill();
 });
 
 
@@ -158,6 +160,7 @@ timeSlider.addEventListener("input", () => {
   const { key } = getSliderSettings();
   localStorage.setItem(key, timeSlider.value);
   timeDisplay.textContent = formatTime(parseInt(timeSlider.value, 10));
+  updateSliderFill();
 });
 
 
