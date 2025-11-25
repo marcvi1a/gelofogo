@@ -163,8 +163,20 @@ button:disabled {
 }
 
 #menu-container {
-  margin-top: 0.75rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
+
+  /* keep your original spacing */
+  padding: 0.75rem;
+
+  /* ensure on top of everything */
+  z-index: 9999;
+
+  /* background needed so slider/camera never show behind */
+  background: #f2efea;
+
   display: flex;
   flex-direction: column;
 }
