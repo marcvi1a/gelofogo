@@ -109,11 +109,6 @@ button:disabled {
   justify-content: space-between;
 }
 
-#camera-controls button {
-  flex: 1;
-  width: 100%;
-}
-
 #time-container {
   width: 100%;
   display: flex;
