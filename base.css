@@ -3,15 +3,12 @@ html, body {
   padding: 0;
   overflow: hidden;
   background: #fff;
+  color: #171a1c;
   font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {
   cursor: pointer;
-}
-
-.selected {
-  background: #e5e5e5;
 }
 
 button:disabled {
@@ -98,7 +95,7 @@ button:disabled {
   display: none; /* hidden until permission granted */
 }
 
-#camera-controls {
+#info-text {
   flex: 1; /* takes up leftover width */
   height: 100%;
 
@@ -180,6 +177,10 @@ button:disabled {
   flex: 1;
   height: 4rem;
 }
+
+/* #start-controls__sauna, #start-controls__sauna {
+  color: #171a1c;
+} */
 
 #start-controls__start {
   color: #fff;

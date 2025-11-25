@@ -25,8 +25,6 @@ const storedMode = localStorage.getItem("mode");
 
 // --- Apply stored mode on page load ---
 if (storedMode === "sauna") {
-  saunaButton.classList.add("selected");
-  iceBathButton.classList.remove("selected");
   timeDisplay.style.color = COLOR_SAUNA;
   startButton.style.background = COLOR_SAUNA;
   appTitleText.textContent = APP_TITLE_SAUNA;
@@ -34,8 +32,6 @@ if (storedMode === "sauna") {
 }
 
 if (storedMode === "ice-bath") {
-  iceBathButton.classList.add("selected");
-  saunaButton.classList.remove("selected");
   timeDisplay.style.color = COLOR_ICE_BATH;
   startButton.style.background = COLOR_ICE_BATH;
   appTitleText.textContent = APP_TITLE_ICE_BATH;
@@ -114,12 +110,6 @@ cameraStart.addEventListener("click", async () => {
     cameraPreview.style.display = "none";
     camera.style.display = "block";
 
-    document.getElementById("camera-controls__invert").disabled = false;
-    document.getElementById("camera-controls__video").disabled = false;
-    document.getElementById("camera-controls__photos").disabled = false;
-
-    document.getElementById("camera-controls__video").classList.add("selected");
-
   } catch (err) {
     alert("Camera permission denied or unavailable.");
     console.error(err);
@@ -128,8 +118,6 @@ cameraStart.addEventListener("click", async () => {
 
 
 saunaButton.addEventListener("click", () => {
-  saunaButton.classList.add("selected");
-  iceBathButton.classList.remove("selected");
   timeDisplay.style.color = COLOR_SAUNA;
   startButton.style.background = COLOR_SAUNA;
   appTitleText.textContent = APP_TITLE_SAUNA;
@@ -142,8 +130,6 @@ saunaButton.addEventListener("click", () => {
 });
 
 iceBathButton.addEventListener("click", () => {
-  iceBathButton.classList.add("selected");
-  saunaButton.classList.remove("selected");
   timeDisplay.style.color = COLOR_ICE_BATH;
   startButton.style.background = COLOR_ICE_BATH;
   appTitleText.textContent = APP_TITLE_ICE_BATH;
