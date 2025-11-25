@@ -121,7 +121,7 @@ button:disabled {
 
 #time-controls {
   z-index: 999;
-  margin: -0.75rem 0 0.75rem;
+  margin-top: -0.75rem;
 }
 
 #time-slider {
