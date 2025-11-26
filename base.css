@@ -6,6 +6,10 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
+a {
+  color: #0969da;
+}
+
 button:hover {
   cursor: pointer;
 }
