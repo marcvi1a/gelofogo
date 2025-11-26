@@ -102,12 +102,13 @@ button:disabled {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+
+  padding-left: 1rem;
 }
 
 #bullet-points ul {
   list-style: none;
-  padding-left: 1rem;
 }
 
 #bullet-points li {
