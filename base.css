@@ -110,6 +110,8 @@ button:disabled {
 #bullet-points ul {
   list-style: none;
   padding-left: 0;
+  margin-top: 0;
+  font-size: 0.75rem;
 }
 
 #bullet-points li {
