@@ -27,7 +27,7 @@ const BULLET_POINT_3_ICE_BATH = "Max 3 min de imersão completa até o pescoço"
 const BULLET_POINT_4_SAUNA = "p4";
 const BULLET_POINT_4_ICE_BATH = "Até 10 min só pernas para recuperação muscular";
 const BULLET_POINT_5_SAUNA = "p5";
-const BULLET_POINT_5_ICE_BATH = "Ler dicas <a href='https://gelohealth.com.br/primeiro' target='_blank'>primeiro mergulho</a>";
+const BULLET_POINT_5_ICE_BATH = "<a href='https://gelohealth.com.br/primeiro' target='_blank'>Dicas primeiro mergulho</a>";
 
 
 const saunaButton = document.getElementById("menu-controls__sauna");
