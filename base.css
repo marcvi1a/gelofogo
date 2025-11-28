@@ -62,7 +62,7 @@ button:disabled {
   color: #ef0241;
 }
 
-.color__ice-bath {
+.color__ice {
   color: #378de2;
 }
 
@@ -244,7 +244,7 @@ button:disabled {
   min-width: 0;
 }
 
-#menu-controls__sauna, #menu-controls__ice-bath {
+#menu-controls__sauna, #menu-controls__ice {
   color: #171a1c;
 }
 

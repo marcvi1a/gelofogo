@@ -12,31 +12,31 @@ const bulletPoint5 = document.getElementById("bullet-point-5");
 const bulletPoint6 = document.getElementById("bullet-point-6");
 
 const BULLET_TITLE_SAUNA = "Sauna";
-const BULLET_TITLE_ICE_BATH = "Gelo";
+const BULLET_TITLE_ICE = "Gelo";
 const BULLET_POINT_1_SAUNA = "Entre 70 ºC e 100 ºC";
-const BULLET_POINT_1_ICE_BATH = "Água abaixo de 15 ºC";
+const BULLET_POINT_1_ICE = "Água abaixo de 15 ºC";
 const BULLET_POINT_2_SAUNA = "Sessão no fim do dia para melhorar sono";
-const BULLET_POINT_2_ICE_BATH = "Min 1 min para aumentar adrenalina e dopamina";
+const BULLET_POINT_2_ICE = "Min 1 min para aumentar adrenalina e dopamina";
 const BULLET_POINT_3_SAUNA = "Sessão após cardio para melhorar endurance";
-const BULLET_POINT_3_ICE_BATH = "Max 3 min de imersão completa até o pescoço";
+const BULLET_POINT_3_ICE = "Max 3 min de imersão completa até o pescoço";
 const BULLET_POINT_4_SAUNA = "Sessões com regularidade para aumentar longevidade";
-const BULLET_POINT_4_ICE_BATH = "Até 10 min só pernas para recuperação muscular";
+const BULLET_POINT_4_ICE = "Até 10 min só pernas para recuperação muscular";
 const BULLET_POINT_5_SAUNA = "100+ min totais por semana com 4 a 7 sessões";
-const BULLET_POINT_5_ICE_BATH = "11 min totais por semana com 3 a 5 mergulhos";
+const BULLET_POINT_5_ICE = "11 min totais por semana com 3 a 5 mergulhos";
 const BULLET_POINT_6_SAUNA = "Combine com luz vermelha para melhorar saúde da pele";
-const BULLET_POINT_6_ICE_BATH = "<a href='https://gelohealth.com.br/primeiro' target='_blank'>Dicas primeiro mergulho</a>";
+const BULLET_POINT_6_ICE = "<a href='https://gelohealth.com.br/primeiro' target='_blank'>Dicas primeiro mergulho</a>";
 
 
 const saunaButton = document.getElementById("menu-controls__sauna");
-const iceBathButton = document.getElementById("menu-controls__ice-bath");
+const iceBathButton = document.getElementById("menu-controls__ice");
 const COLOR_SAUNA = "#ef0241";
-const COLOR_ICE_BATH = "#378de2";
+const COLOR_ICE = "#378de2";
 const timeDisplay = document.getElementById("time-display");
 const startButton = document.getElementById("menu-controls__start");
 
 // --- Initialize mode if empty ---
 if (!localStorage.getItem("mode")) {
-  localStorage.setItem("mode", "ice-bath");
+  localStorage.setItem("mode", "ice");
 }
 
 const storedMode = localStorage.getItem("mode");
@@ -54,16 +54,16 @@ if (storedMode === "sauna") {
   bulletPoint6.innerHTML = BULLET_POINT_6_SAUNA;
 }
 
-if (storedMode === "ice-bath") {
-  timeDisplay.style.color = COLOR_ICE_BATH;
-  startButton.style.background = COLOR_ICE_BATH;
-  bulletTitle.textContent = BULLET_TITLE_ICE_BATH;
-  bulletPoint1.textContent = BULLET_POINT_1_ICE_BATH;
-  bulletPoint2.textContent = BULLET_POINT_2_ICE_BATH;
-  bulletPoint3.textContent = BULLET_POINT_3_ICE_BATH;
-  bulletPoint4.textContent = BULLET_POINT_4_ICE_BATH;
-  bulletPoint5.textContent = BULLET_POINT_5_ICE_BATH;
-  bulletPoint6.innerHTML = BULLET_POINT_6_ICE_BATH;
+if (storedMode === "ice") {
+  timeDisplay.style.color = COLOR_ICE;
+  startButton.style.background = COLOR_ICE;
+  bulletTitle.textContent = BULLET_TITLE_ICE;
+  bulletPoint1.textContent = BULLET_POINT_1_ICE;
+  bulletPoint2.textContent = BULLET_POINT_2_ICE;
+  bulletPoint3.textContent = BULLET_POINT_3_ICE;
+  bulletPoint4.textContent = BULLET_POINT_4_ICE;
+  bulletPoint5.textContent = BULLET_POINT_5_ICE;
+  bulletPoint6.innerHTML = BULLET_POINT_6_ICE;
 }
 
 
@@ -72,21 +72,21 @@ if (!localStorage.getItem("time-countdown-sauna")) {
   localStorage.setItem("time-countdown-sauna", "600");
 }
 
-if (!localStorage.getItem("time-countdown-ice-bath")) {
-  localStorage.setItem("time-countdown-ice-bath", "60");
+if (!localStorage.getItem("time-countdown-ice")) {
+  localStorage.setItem("time-countdown-ice", "60");
 }
 
 const timeSlider = document.getElementById("time-slider");
 
 function getMode() {
-  return localStorage.getItem("mode") === "sauna" ? "sauna" : "ice-bath";
+  return localStorage.getItem("mode") === "sauna" ? "sauna" : "ice";
 }
 
 function getSliderSettings() {
   if (getMode() === "sauna") {
     return { min: 60, max: 1800, step: 60, key: "time-countdown-sauna" };
   }
-  return { min: 60, max: 600, step: 10, key: "time-countdown-ice-bath" };
+  return { min: 60, max: 600, step: 10, key: "time-countdown-ice" };
 }
 
 function applySliderSettings() {
@@ -101,7 +101,7 @@ function applySliderSettings() {
 
 function updateSliderColor() {
   const mode = getMode();
-  const color = mode === "sauna" ? COLOR_SAUNA : COLOR_ICE_BATH;
+  const color = mode === "sauna" ? COLOR_SAUNA : COLOR_ICE;
   timeSlider.style.setProperty("--slider-color", color);
 }
 
@@ -109,7 +109,7 @@ function updateSliderFill() {
   const value = (timeSlider.value - timeSlider.min) / (timeSlider.max - timeSlider.min) * 100;
 
   // mode color already coming from CSS variable
-  const color = getMode() === "sauna" ? COLOR_SAUNA : COLOR_ICE_BATH;
+  const color = getMode() === "sauna" ? COLOR_SAUNA : COLOR_ICE;
 
   timeSlider.style.background = `
     linear-gradient(90deg,
@@ -163,17 +163,17 @@ saunaButton.addEventListener("click", () => {
 });
 
 iceBathButton.addEventListener("click", () => {
-  timeDisplay.style.color = COLOR_ICE_BATH;
-  startButton.style.background = COLOR_ICE_BATH;
-  bulletTitle.textContent = BULLET_TITLE_ICE_BATH;
-  bulletPoint1.textContent = BULLET_POINT_1_ICE_BATH;
-  bulletPoint2.textContent = BULLET_POINT_2_ICE_BATH;
-  bulletPoint3.textContent = BULLET_POINT_3_ICE_BATH;
-  bulletPoint4.textContent = BULLET_POINT_4_ICE_BATH;
-  bulletPoint5.textContent = BULLET_POINT_5_ICE_BATH;
-  bulletPoint6.innerHTML = BULLET_POINT_6_ICE_BATH;
+  timeDisplay.style.color = COLOR_ICE;
+  startButton.style.background = COLOR_ICE;
+  bulletTitle.textContent = BULLET_TITLE_ICE;
+  bulletPoint1.textContent = BULLET_POINT_1_ICE;
+  bulletPoint2.textContent = BULLET_POINT_2_ICE;
+  bulletPoint3.textContent = BULLET_POINT_3_ICE;
+  bulletPoint4.textContent = BULLET_POINT_4_ICE;
+  bulletPoint5.textContent = BULLET_POINT_5_ICE;
+  bulletPoint6.innerHTML = BULLET_POINT_6_ICE;
 
-  localStorage.setItem("mode", "ice-bath");
+  localStorage.setItem("mode", "ice");
   applySliderSettings();
   updateSliderColor();
   updateSliderFill();
