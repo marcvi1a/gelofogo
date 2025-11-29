@@ -165,10 +165,10 @@ cameraStart.addEventListener("click", async () => {
 
     camera.srcObject = stream;
 
-    cameraPreview.style.display = "none";
+    timeContainer.style.marginTop = "auto";
     cameraStart.style.display = "none";
     camera.style.display = "block";
-    timeContainer.style.marginTop = "auto";
+    cameraPreview.style.display = "none";
 
   } catch (err) {
     alert("Camera permission denied or unavailable.");
