@@ -24,6 +24,11 @@
   <div id="app">
     <div id="app-padding">
 
+      <div id="camera-container">
+        <div id="camera-preview"></div> <!-- Initial overlay -->
+        <video id="camera" autoplay playsinline></video> <!-- Camera window -->
+      </div>
+
       <div id="app-header">
         <h1 id="app-title"><span class="color__ice">Cold</span><span class="color__sauna">nHot</span></h1>
 
@@ -33,14 +38,7 @@
         </select>
       </div>
 
-      <div id="camera-container" class="container">
-        <!-- Initial overlay -->
-        <div id="camera-preview">
-          <button id="camera-start"></button>
-        </div>
-        <!-- Camera window -->
-        <video id="camera" autoplay playsinline></video>
-      </div>
+      <button id="camera-start"></button>
 
       <div id="time-container" class="container">
         <div id="time-display"></div>

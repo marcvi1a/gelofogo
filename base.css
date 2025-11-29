@@ -45,6 +45,44 @@ button:disabled {
   }
 }
 
+#camera-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 9/16;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Blurry background covers entire screen */
+#camera-preview {
+  background: url('assets/blur.gif') repeat;
+  aspect-ratio: 9 / 16;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#camera {
+  display: none; /* hidden until permission granted */
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#app-header,
+#time-container,
+#menu-container {
+  position: relative;
+  z-index: 5; /* above camera */
+}
+
 #app-header {
   display: flex;
   justify-content: space-between;
@@ -69,112 +107,26 @@ button:disabled {
   background: #f5f5f7;
   font-size: 0.8rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 0.2rem 0.4rem;
 
   font-family: 'Montserrat', sans-serif;
 }
 
-#camera-container {
-  /* display: flex;
-  width: 100%;
-  height: 45%;
-  margin-top: 0.75rem; */
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 9/16;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.container {
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-/* Blurry background covers entire screen */
-#camera-preview {
-  /* aspect-ratio: 9 / 16;
-  height: 100%; */
-
-  background: url('assets/blur.gif') repeat;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Call-to-action button */
 #camera-start {
   max-width: 70%;
   padding: 1rem 1.3rem;
   font-size: 1rem;
   background: rgba(255,255,255,0.9);
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   color: #0969da;
   text-decoration: underline;
 }
 
-#camera {
-  /* aspect-ratio: 9 / 16;
-  height: 100%; */
-
-  /* object-fit: cover;
-  background: #000; */
-  display: none; /* hidden until permission granted */
-
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-#app-header,
-#bullet-points,
-#time-container,
-#menu-container {
-  position: relative;
-  z-index: 5; /* above camera */
-}
-
-#bullet-points {
-  flex: 1; /* takes up leftover width */
-  height: 100%;
-
-  object-fit: cover;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  padding-left: 1rem;
-}
-
-#bullet-title {
-  font-weight: bold;
-  margin-top: 0.5rem;
-}
-
-#bullet-points ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0;
-  font-size: 0.75rem;
-}
-
-#bullet-points li {
-  margin-bottom: 1rem;
+.container {
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 #time-container {
@@ -188,7 +140,7 @@ button:disabled {
 #time-display {
   font-family: "Roboto Mono", monospace;
   font-size: 7rem;
-  background: #f5f5f7;
+  background: #f5f5f780;
   text-align: center;
 }
 
@@ -203,14 +155,14 @@ button:disabled {
   margin-top: 1rem;
   appearance: none;
   height: 8px;
-  border-radius: 4px;
+  border-radius: 8px;
   background: #dfdfdf; /* fallback */
 }
 
 /* slider track */
 #time-slider::-webkit-slider-runnable-track {
   height: 8px;
-  border-radius: 4px;
+  border-radius: 8px;
   background: transparent;  /* JS controls actual background */
 }
 
@@ -252,7 +204,7 @@ button:disabled {
   padding: 0.75rem 0;
 
   /* background needed so slider/camera never show behind */
-  background: #f2efea;
+  background: #f2efea80;
 
   box-shadow: 0 -6px 12px rgba(23, 26, 28, 0.15);
   border-radius: 0;
