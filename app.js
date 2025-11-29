@@ -224,21 +224,17 @@ function startCountdown() {
   hideMainUI();
   startButton.textContent = "STOP";
 
-  let countdown = 10;
+  let countdown = 5;
   timeCountdown.textContent = countdown;
 
   countdownInterval = setInterval(() => {
     countdown--;
     timeCountdown.textContent = countdown;
 
-    if (countdown <= 1) {
+    if (countdown <= 0) {
       clearInterval(countdownInterval);
-      timeCountdown.textContent = "00:00";
       beginMainTimer();
-      return;
     }
-
-    timeCountdown.textContent = countdown;
   }, 1000);
 }
 
