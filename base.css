@@ -255,3 +255,27 @@ button:disabled {
   font-weight: bold;
   text-transform: uppercase;
 }
+
+
+
+
+
+.bullet-points {
+  display: none;
+}
+
+#camera-container {
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  height: auto;
+}
+
+#camera-preview {
+  aspect-ratio: 9 / 16;
+  height: 100%;
+}
+
+#camera {
+  aspect-ratio: 9 / 16;
+  height: 100%;
+}
