@@ -67,6 +67,13 @@ const COLOR_ICE = "#378de2";
 const timeDisplay = document.getElementById("time-display");
 const startButton = document.getElementById("menu-controls__start");
 
+
+const countdownScreen = document.getElementById("countdown-screen");
+const countdownTimer = document.getElementById("countdown-timer");
+
+
+
+
 // --- Initialize mode if empty ---
 if (!localStorage.getItem("mode")) {
   localStorage.setItem("mode", "ice");
@@ -166,6 +173,14 @@ cameraStart.addEventListener("click", async () => {
 });
 
 
+timeSlider.addEventListener("input", () => {
+  const { key } = getSliderSettings();
+  localStorage.setItem(key, timeSlider.value);
+  timeDisplay.textContent = formatTime(parseInt(timeSlider.value, 10));
+  updateSliderFill();
+});
+
+
 saunaButton.addEventListener("click", () => {
   timeDisplay.style.color = COLOR_SAUNA;
   startButton.style.background = COLOR_SAUNA;
@@ -189,12 +204,27 @@ iceButton.addEventListener("click", () => {
 });
 
 
-timeSlider.addEventListener("input", () => {
-  const { key } = getSliderSettings();
-  localStorage.setItem(key, timeSlider.value);
-  timeDisplay.textContent = formatTime(parseInt(timeSlider.value, 10));
-  updateSliderFill();
-});
+startButton.addEventListener("click", startSession);
+
+function startSession() {
+  // hide existing UI
+  document.getElementById("time-container").style.display = "none";
+  document.getElementById("camera-container").style.height = "55%";
+  document.getElementById("countdown-screen").style.display = "flex";
+
+  let countdown = 10;
+  countdownTimer.textContent = countdown;
+
+  const countdownInterval = setInterval(() => {
+    countdown--;
+    countdownTimer.textContent = countdown;
+
+    if (countdown <= 0) {
+      clearInterval(countdownInterval);
+      beginMainTimer();
+    }
+  }, 1000);
+}
 
 
 
