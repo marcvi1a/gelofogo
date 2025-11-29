@@ -92,6 +92,7 @@ button:disabled {
 }
 
 #app-header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,8 +100,8 @@ button:disabled {
 
 #app-title {
   font-family: 'Poppins', sans-serif;
-  line-height: 0rem;
-  margin-bottom: 0.75rem;
+  margin: 0;
+  line-height: 1;
 }
 
 .color__sauna {
