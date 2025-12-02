@@ -227,7 +227,7 @@ function startCountdown() {
   state = "countdown";
 
   hideMainUI();
-  menuMessage.style.display = "block";
+  menuMessage.style.display = "flex";
   menuControls.style.display = "none";
   startButton.textContent = "STOP";
 
