@@ -215,6 +215,7 @@ button:disabled {
   font-size: 7rem;
   text-align: center;
   color: #fff;
+  background: #f5f5f780;
 }
 
 #menu-container {

@@ -276,7 +276,7 @@ function stopSession() {
 
   showMainUI();
   startButton.textContent = "START";
-  timeCountdown.style.color = "#171a1c";
+  timeCountdown.style.color = "#fff";
 }
 
 
