@@ -216,6 +216,7 @@ button:disabled {
   text-align: center;
   color: #fff;
   background: #f5f5f780;
+  border-radius: 8px;
 }
 
 #menu-container {
