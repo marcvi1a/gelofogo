@@ -43,6 +43,7 @@ async function applyLanguage() {
   saunaButton.textContent = tr.saunaButton;
   iceButton.textContent = tr.iceButton;
   startButton.textContent = tr.startButton;
+  menuMessage.textContent = tr.menuMessage;
 }
 
 
@@ -69,9 +70,11 @@ const timeDisplay = document.getElementById("time-display");
 const timeCountdown = document.getElementById("time-countdown");
 const timeControls = document.getElementById("time-controls");
 
+const menuControls = document.getElementById("menu-controls");
 const saunaButton = document.getElementById("menu-controls__sauna");
 const iceButton = document.getElementById("menu-controls__ice");
 const startButton = document.getElementById("menu-controls__start");
+const menuMessage = document.getElementById("menu-message");
 
 
 
@@ -224,6 +227,8 @@ function startCountdown() {
   state = "countdown";
 
   hideMainUI();
+  timeMessage.display = "block";
+  timeControls.display = "none";
   startButton.textContent = "STOP";
 
   let countdown = 5;
@@ -244,6 +249,10 @@ function startCountdown() {
 
 function beginMainTimer() {
   state = "running";
+
+  timeMessage.display = "none";
+  timeControls.display = "flex";
+
   time = 0;
   const endTime = parseInt(timeSlider.value, 10);
   let finishedMark = false;
