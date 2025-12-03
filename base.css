@@ -172,7 +172,6 @@ button:disabled {
 
 #live-messages {
   position: absolute;
-  bottom: 0.5rem;
   bottom: calc(100% + 0.5rem);
   right: 0.75rem;
   width: min(78%, 300px);      /* responsive width — never wider than 300px */
