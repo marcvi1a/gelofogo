@@ -277,7 +277,6 @@ function beginMainTimer() {
       finishedMark = true;
 
       timeCountdown.style.background = baseColor;
-      timeCountdown.style.color = "red";
     }
   }, 1000);
 }
@@ -290,7 +289,6 @@ function stopSession() {
 
   showMainUI();
   startButton.textContent = "START";
-  timeCountdown.style.color = "#fff";
 
   const baseColor = getMode() === "sauna" ? COLOR_SAUNA : COLOR_ICE;
 
