@@ -310,7 +310,7 @@ button:disabled {
   color: #171a1c;
 }
 
-#menu-controls__start {
+#menu-controls__start, #menu-controls__stop {
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
