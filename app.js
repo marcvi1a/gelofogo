@@ -247,70 +247,25 @@ function startCountdown() {
   }, 1000);
 }
 
-// function beginMainTimer() {
-//   state = "running";
-//
-//   menuMessage.style.display = "none";
-//   menuControls.style.display = "flex";
-//
-//   time = 0;
-//   const endTime = parseInt(timeSlider.value, 10);
-//   let finishedMark = false;
-//
-//   mainInterval = setInterval(() => {
-//     time++;
-//     timeCountdown.textContent = formatTime(time);
-//
-//     const fill = (time / endTime) * 100;  // percentage 0 → 100
-//     const baseColor = getMode() === "sauna" ? COLOR_SAUNA : COLOR_ICE;
-//
-//     if (!finishedMark) {
-//       // update fill from left to right
-//       timeCountdown.style.background = `
-//         linear-gradient(90deg,
-//           ${color80(baseColor)} ${fill}%,
-//           #f5f5f780 ${fill}%)
-//       `;
-//     }
-//
-//     if (!finishedMark && time >= endTime) {
-//       finishedMark = true;
-//
-//       timeCountdown.style.background = baseColor;
-//       timeCountdown.style.color = "red";
-//     }
-//   }, 1000);
-// }
-
-
 function beginMainTimer() {
   state = "running";
 
   menuMessage.style.display = "none";
   menuControls.style.display = "flex";
 
-  let totalElapsedMilliseconds = 0; // Track time in ms
-  const updateInterval = 50; // Update every 50ms (20 times per second)
-
+  time = 0;
   const endTime = parseInt(timeSlider.value, 10);
-  const totalMs = endTime * 1000; // Total time in milliseconds
-
   let finishedMark = false;
 
   mainInterval = setInterval(() => {
-    totalElapsedMilliseconds += updateInterval;
+    time++;
+    timeCountdown.textContent = formatTime(time);
 
-    // Time to display (updates every 1000ms / 50ms = 20 times per second, but visually still shows seconds)
-    const elapsedSeconds = Math.round(totalElapsedMilliseconds / 1000);
-    timeCountdown.textContent = formatTime(elapsedSeconds);
-
-    // Calculate fill based on precise millisecond time
-    const fill = (totalElapsedMilliseconds / totalMs) * 100;
-
+    const fill = (time / endTime) * 100;  // percentage 0 → 100
     const baseColor = getMode() === "sauna" ? COLOR_SAUNA : COLOR_ICE;
 
     if (!finishedMark) {
-      // update blue fill from left to right (now smooth!)
+      // update fill from left to right
       timeCountdown.style.background = `
         linear-gradient(90deg,
           ${color80(baseColor)} ${fill}%,
@@ -318,25 +273,14 @@ function beginMainTimer() {
       `;
     }
 
-    if (!finishedMark && totalElapsedMilliseconds >= totalMs) {
+    if (!finishedMark && time >= endTime) {
       finishedMark = true;
 
       timeCountdown.style.background = baseColor;
       timeCountdown.style.color = "red";
     }
-
-    // If the interval runs indefinitely past the totalMs, ensure fill calculation doesn't exceed 100%
-    if (totalElapsedMilliseconds > totalMs && !finishedMark) {
-      const baseColor = getMode() === "sauna" ? COLOR_SAUNA : COLOR_ICE;
-      timeCountdown.style.background = baseColor;
-    }
-
-  }, updateInterval);
+  }, 1000);
 }
-
-
-
-
 
 function stopSession() {
   state = "idle";
