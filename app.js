@@ -49,20 +49,20 @@ async function applyLanguage() {
 
 const TIMED_MESSAGES = {
   sauna: {
-    10: "Solid start!",
-    20: "Heat kicking in.",
-    40: "Focus on breathing.",
-    60: "You’re getting stronger.",
-    90: "Stay with it.",
-    120: "Great endurance!",
+    3: "Solid start!",
+    4: "Heat kicking in.",
+    5: "Focus on breathing.",
+    6: "You’re getting stronger.",
+    9: "Stay with it.",
+    12: "Great endurance!",
   },
   ice: {
-    10: "Solid start!",
-    20: "Relax your shoulders.",
-    30: "Slow breathing helps.",
-    45: "Mind over body.",
-    60: "You're doing amazing.",
-    90: "Stay calm, stay still.",
+    3: "Solid start!",
+    4: "Relax your shoulders.",
+    5: "Slow breathing helps.",
+    6: "Mind over body.",
+    9: "You're doing amazing.",
+    12: "Stay calm, stay still.",
   }
 };
 
