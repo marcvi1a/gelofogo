@@ -237,8 +237,18 @@ function pushLiveMessage(text) {
   const msg = document.createElement("div");
   msg.className = "live-message";
   msg.textContent = text;
-
   liveMessages.appendChild(msg);
+
+  // Remove after 3 seconds with fade-out animation
+  setTimeout(() => {
+    msg.style.animation = "chatOut 0.4s ease-out forwards";
+
+    // Remove fully after fade-out completes
+    setTimeout(() => {
+      msg.remove();
+    }, 400);
+
+  }, 3000);
 
   // Limit stacking for UI safety
   if (liveMessages.children.length > 10) {
