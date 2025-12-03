@@ -114,12 +114,14 @@ const storedMode = localStorage.getItem("mode");
 if (storedMode === "sauna") {
   timeDisplay.style.color = COLOR_SAUNA;
   startButton.style.background = COLOR_SAUNA;
+  stopButton.style.background = COLOR_SAUNA;
   applyLanguage();
 }
 
 if (storedMode === "ice") {
   timeDisplay.style.color = COLOR_ICE;
   startButton.style.background = COLOR_ICE;
+  stopButton.style.background = COLOR_ICE;
   applyLanguage();
 }
 
@@ -215,6 +217,7 @@ timeSlider.addEventListener("input", () => {
 saunaButton.addEventListener("click", () => {
   timeDisplay.style.color = COLOR_SAUNA;
   startButton.style.background = COLOR_SAUNA;
+  stopButton.style.background = COLOR_SAUNA;
 
   localStorage.setItem("mode", "sauna");
   applySliderSettings();
@@ -226,6 +229,7 @@ saunaButton.addEventListener("click", () => {
 iceButton.addEventListener("click", () => {
   timeDisplay.style.color = COLOR_ICE;
   startButton.style.background = COLOR_ICE;
+  stopButton.style.background = COLOR_ICE;
 
   localStorage.setItem("mode", "ice");
   applySliderSettings();
