@@ -172,7 +172,7 @@ button:disabled {
 
 #live-messages {
   position: absolute;
-  bottom: 20rem;
+  bottom: 18rem;
   right: 1rem;
   width: 70%;
   display: flex;
