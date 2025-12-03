@@ -340,7 +340,7 @@ function beginMainTimer() {
       pushLiveMessage(`Target time reached: ${formatTime(endTime)}`);
       setTimeout(() => {
           pushLiveMessage(`Congrats! 🥳🥳`);
-      }, 200);
+      }, 500);
 
       timeCountdown.style.background = baseColor;
     }
