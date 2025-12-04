@@ -424,7 +424,7 @@ function applyStartUI() {
   exitButton.style.display = "none";
   saunaButton.style.display = "block";
   iceButton.style.display = "block";
-  stopButton.style.display = "block";
+  startButton.style.display = "block";
 }
 
 
