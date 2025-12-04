@@ -359,7 +359,7 @@ function stopSession() {
 
   liveMessages.innerHTML = "";  // reset messages
 
-   applyExitUI();
+  applyExitUI();
 
   const baseColor = getMode() === "sauna" ? COLOR_SAUNA : COLOR_ICE;  // exitButton
 
@@ -378,6 +378,7 @@ function color80(hex) {
 }
 
 function exitSession() {
+  applyStartUI();
 }
 
 // function hideMainUI() {
@@ -405,24 +406,25 @@ function applyStopUI() {
   timeCountdown.style.display = "block";
   saunaButton.style.display = "none";
   iceButton.style.display = "none";
-
-  menuMessage.style.display = "flex";
-  menuControls.style.display = "none";
+  startButton.style.display = "none";
+  stopButton.style.display = "block";
 }
 
 function applyExitUI() {
   timeCountdown.style.display = "none";
 
   stopButton.style.display = "none";
-  exitButton.style.display = "block";  // exitButton
+  exitButton.style.display = "block";
 }
 
 function applyStartUI() {
   timeDisplay.style.display = "block";
   timeControls.style.pointerEvents = "";
   timeControls.style.opacity = "";
+  exitButton.style.display = "none";
   saunaButton.style.display = "block";
   iceButton.style.display = "block";
+  stopButton.style.display = "block";
 }
 
 
